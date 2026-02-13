@@ -5,7 +5,7 @@ Spring Boot backend for intelligent document analysis with automatic content ext
 ## 🎯 Project Overview
 
 This backend enables document upload (PDF, DOCX, TXT), text extraction, and automatic analysis using:
-- **Pre-trained AI Model** (Llama 3.2 via Ollama) for summary generation
+- **Pre-trained AI Model** (HuggingFace) for summary generation
 - **TF-IDF Algorithm** for keyword extraction
 - **Apache Tika** for multi-format text extraction
 
@@ -21,7 +21,7 @@ This backend enables document upload (PDF, DOCX, TXT), text extraction, and auto
 | **Spring Boot** | 3.5.9 | Backend framework |
 | **PostgreSQL** | 14+ | Database |
 | **Apache Tika** | 2.9.1 | Text extraction |
-| **Ollama** | Latest | Local AI model (Llama 3.2) |
+| **HuggingFace** 
 | **Maven** | 3.6+ | Dependency management |
 
 ### Layered Architecture
