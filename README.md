@@ -24,32 +24,29 @@ This backend enables document upload (PDF, DOCX, TXT), text extraction, and auto
 | **Ollama** | Latest | Local AI model (Llama 3.2) |
 | **Maven** | 3.6+ | Dependency management |
 
-### **Layered Architecture**┌─────────────────────────────────────────────────────────┐
-│                     CONTROLLER LAYER                     │
-│  DocumentController.java                                 │
-│  - POST   /api/documents/upload                         │
-│  - POST   /api/documents/{id}/analyze                   │
-│  - GET    /api/documents/{id}/analysis                  │
-│  - GET    /api/documents/{id}                           │
-│  - GET    /api/documents                                │
-└─────────────────────────────────────────────────────────┘
-↓
-┌─────────────────────────────────────────────────────────┐
-│                     SERVICE LAYER                        │
-│  DocumentService.java        - Document management      │
-│  AIAnalysisService.java      - Analysis orchestration   │
-│  TextExtractionService.java  - Text extraction (Tika)   │
-│  HuggingFaceClient.java      - AI & TF-IDF processing   │
-│  FileStorageService.java     - File storage handling    │
-└─────────────────────────────────────────────────────────┘
-↓
-┌─────────────────────────────────────────────────────────┐
-│                     REPOSITORY LAYER                     │
-│  DocumentRepo.java           - Database operations       │
-└─────────────────────────────────────────────────────────┘
-↓
-┌─────────────────────────────────────────────────────────┐
-│                     DATA LAYER                           │
-│  PostgreSQL Database                                     │
-│  - documents table (metadata + analysis results)        │
-└─────────────────────────────────────────────────────────┘
+### Layered Architecture
+CONTROLLER LAYER                     
+DocumentController.java                                 
+- POST   /api/documents/upload                         
+- POST   /api/documents/{id}/analyze                   
+- GET    /api/documents/{id}/analysis                  
+- GET    /api/documents/{id}                           
+- GET    /api/documents                                
+
+
+SERVICE LAYER                        
+DocumentService.java        - Document management      
+AIAnalysisService.java      - Analysis orchestration   
+TextExtractionService.java  - Text extraction (Tika)   
+HuggingFaceClient.java      - AI & TF-IDF processing   
+FileStorageService.java     - File storage handling   
+
+
+REPOSITORY LAYER                     
+DocumentRepo.java           - Database operations       
+
+
+DATA LAYER                           
+PostgreSQL Database                                     
+- documents table (metadata + analysis results)        
+
